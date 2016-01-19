@@ -7,9 +7,9 @@ namespace DemoMvc
     {
         public static void Main(string[] args)
         {
-            var configuration = WebApplicationConfiguration.GetDefault(args);
+            var configuration = WebHostConfiguration.GetDefault(args);
 
-            var application = new WebApplicationBuilder()
+            var application = new WebHostBuilder()
                         .UseServer("Microsoft.AspNet.Server.Kestrel")
                         .UseApplicationBasePath(Directory.GetCurrentDirectory())
                         .UseConfiguration(configuration)
