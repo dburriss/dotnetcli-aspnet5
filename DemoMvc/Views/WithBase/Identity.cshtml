@@ -1,0 +1,11 @@
+﻿@model IEnumerable<System.Security.Claims.Claim>
+<h2>Claims:</h2>
+<ul class="list-group">
+    @foreach (var claim in Model)
+    {
+        <li class="list-group-item">
+            <b>@claim.Type:</b> &nbsp;
+            @claim.Value
+        </li>
+    }
+</ul>
