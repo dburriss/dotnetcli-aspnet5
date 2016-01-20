@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNet.Builder;
+﻿using DemoMvc.Abstractions;
+using DemoMvc.Models;
+using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;
 using Microsoft.AspNet.Mvc;
 using Microsoft.AspNet.Mvc.Infrastructure;
@@ -35,6 +37,7 @@ namespace DemoMvc
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<IEmailAddressService, EmailAddressService>();
             services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
             services.AddSingleton<IUrlHelperFactory, UrlHelperFactory>();
             services.AddMvc();
