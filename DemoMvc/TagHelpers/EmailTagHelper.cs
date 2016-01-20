@@ -10,15 +10,14 @@ namespace DemoMvc.TagHelpers
     public class EmailTagHelper : TagHelper
     {
         private readonly IUrlHelper _urlHelper;
+        private readonly IEmailAddressService _emailAddressService;
 
-        public string Action { get; set; }
-        public string Controller { get; set; }
-        //public string Area { get; set; }
-
-
-        public EmailTagHelper(IUrlHelperFactory urlHelperFactory, IActionContextAccessor actionContextAccessor)
+        
+        
+        public EmailTagHelper(IEmailAddressService emailAddressService, IUrlHelperFactory urlHelperFactory, IActionContextAccessor actionContextAccessor)
         {
             _urlHelper = urlHelperFactory.GetUrlHelper(actionContextAccessor.ActionContext);
+            _emailAddressService = emailAddressService;
         }
 
         public override void Process(TagHelperContext context, TagHelperOutput output)
